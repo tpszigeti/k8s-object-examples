@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: job-1
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: nginx
+        name: job-1
+        command: [/bin/sh, -c, echo $(date)]
+        resources: {}
+      restartPolicy: Never
+status: {}
