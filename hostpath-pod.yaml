@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: hostpath-pod
+  name: hostpath-pod
+spec:
+  containers:
+  - image: nginx
+    name: hostpath-pod
+    resources: {}
+    volumeMounts:
+    - mountPath: /output
+      name: host-volume
+  volumes:
+  - name: host-volume
+    hostPath:
+      path: /data
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
